@@ -7,7 +7,6 @@ export default function DinosaurContainer({ digimons }) {
         return digimons.map( digimon => <DigimonCard digimon={digimon} key={digimon.name}/>)
     }
 
-
     return (
         <section className="digimons-container">
             {displayDigimonCards()}
