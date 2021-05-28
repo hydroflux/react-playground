@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css'
+import DinosaurContainer from './containers/DinosaurContainer';
 
 function App() {
 
@@ -20,18 +21,7 @@ function App() {
   return (
     
     <div className="App">
-      {
-        dinosaurs.map( dinosaur => {
-          console.log(dinosaur)
-          return (
-            <div className="dinosaur-card" key={dinosaur.name}>
-              <img src={dinosaur.image} alt={dinosaur.name} />
-              <h2>{dinosaur.name}</h2>
-              <h3>{dinosaur.type}</h3>
-            </div>
-          )
-        })
-      }
+      <DinosaurContainer dinosaurs={dinosaurs}/>
     </div>
   );
 }
