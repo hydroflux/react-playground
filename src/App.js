@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import './App.css'
 
 function App() {
+
+  const [dinosaurs, setDinosaurs] = useState([
+    {
+      name: "Brontosaurus",
+      type: "herbivore",
+      image: "https://image.shutterstock.com/image-vector/brontosaurus-diplodocus-dinosaur-comic-style-260nw-1721306374.jpg"
+    },
+    {
+      name: "T-Rex",
+      type: "carnivore",
+      image: "https://image.shutterstock.com/image-photo/tyrannosaurus-rex-isolated-white-260nw-509463667.jpg"
+    }
+  ])
+
+
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        dinosaurs.map( dinosaur => {
+          console.log(dinosaur)
+          return (
+            <div className="dinosaur-card" key={dinosaur.name}>
+              <img src={dinosaur.image} alt={dinosaur.name} />
+              <h2>{dinosaur.name}</h2>
+              <h3>{dinosaur.type}</h3>
+            </div>
+          )
+        })
+      }
     </div>
   );
 }
