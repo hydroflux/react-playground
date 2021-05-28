@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css'
-import DinosaurContainer from './containers/DinosaurContainer';
+import DigimonContainer from './containers/DigimonContainer';
 
 function App() {
 
-  const [dinosaurs, setDinosaurs] = useState([
+  const [digimons, setDigimon] = useState([
     {
       name: "Brontosaurus",
       type: "herbivore",
@@ -17,11 +17,13 @@ function App() {
     }
   ])
 
+  
+
 
   return (
     
     <div className="App">
-      <DinosaurContainer dinosaurs={dinosaurs}/>
+      <DigimonContainer digimons={digimons}/>
     </div>
   );
 }
