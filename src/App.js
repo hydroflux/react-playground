@@ -1,27 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
+import './digimon.css'
 import DigimonContainer from './containers/DigimonContainer';
 
 function App() {
+  const parseHTTPResponse = response => response.json()
+  const [digimons, setDigimon] = useState([])
 
-  const [digimons, setDigimon] = useState([
-    {
-      name: "Brontosaurus",
-      type: "herbivore",
-      image: "https://image.shutterstock.com/image-vector/brontosaurus-diplodocus-dinosaur-comic-style-260nw-1721306374.jpg"
-    },
-    {
-      name: "T-Rex",
-      type: "carnivore",
-      image: "https://image.shutterstock.com/image-photo/tyrannosaurus-rex-isolated-white-260nw-509463667.jpg"
-    }
-  ])
-
+  useEffect( () => {
+    fetch("https://digimon-api.vercel.app/api/digimon")
+    .then( parseHTTPResponse )
+    .then( setDigimon )
+  }, [])
   
-
-
-  return (
-    
+  return (  
     <div className="App">
       <DigimonContainer digimons={digimons}/>
     </div>
